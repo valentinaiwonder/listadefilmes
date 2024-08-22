@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de filmes</title>
+    <link rel="stylesheet" href="static/css/estiloindex.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <img class="logo" src="static/img/postalfilms.png"
+         alt="Logo do postalfilms "/></div>
+       <a href="/"><button class="palavras">HOME</button>
+        </a>
+        <a href= "/"><button class="palavras">Filmes em cartaz</button>
+        </a>
+
+        <a href="/"><button class="palavras">Listas</button>
+        </a>
+
+        <a href="/"><button class="palavras">Login ou Cadastro</button>
+        </a>
+
+</header>
+    <h1 class = "um ">Lista de filmes</h1>
+    <ul>
+        {% for filme in filmes %}
+        <li>{{ filme['nome'] }} - {{ filme['gênero'] }} - {{ filme['ano'] }}
+            <ul>
+                <li><a href="/editar_filme/{{ filme['codigo'] }}"> EDITAR </a></li>
+                <li><a href="/apagar_filme/{{ filme['codigo'] }}"> APAGAR </a></li>
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/adicionar_filme"><button class="botao-adicionar">Adicionar Novo Filme</button></a>
+</body>
+</html>
